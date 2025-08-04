@@ -20,7 +20,7 @@ def fetch_studies(
             return JSONResponse(status_code=400, content={"error": "No sponsors provided."})
 
         # Build query for sponsor filter
-        sponsor_filters = " OR ".join(f'AREA[LeadSponsor]"{"".join(s)}"' for s in sponsor_list)
+        sponsor_filters = " OR ".join(f'AREA[LeadSponsor] "{s}"' for s in sponsor_list)
 
         # Date range: last 24 hours in UTC
         end_date = datetime.utcnow().date()
